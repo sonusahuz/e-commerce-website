@@ -47,7 +47,7 @@ export default function Header() {
         />
       </div>
       <div>
-        <ul className="flex items-center justify-between flex-wrap gap-10 text-white">
+        <ul className="ul_link gap-10">
           <li>
             <NavLink to={"/"} className="link">
               Home
@@ -55,12 +55,7 @@ export default function Header() {
           </li>
           <ul>
             {isLogin ? (
-              <ul className="flex items-center justify-between flex-wrap gap-10 text-white">
-                <li>
-                  <NavLink to={"/my-order"} className="link">
-                    My Order
-                  </NavLink>
-                </li>
+              <ul className="ul_link gap-10">
                 <li>
                   <NavLink to={"/cart"} className="link">
                     Cart ({cart.length})
@@ -74,7 +69,7 @@ export default function Header() {
                 </li>
               </ul>
             ) : (
-              <ul className="flex items-center justify-between flex-wrap gap-10 text-white">
+              <ul className="ul_link gap-10">
                 <li>
                   <NavLink to={"/login"} className="link">
                     Login

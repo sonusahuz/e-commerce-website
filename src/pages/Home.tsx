@@ -1,6 +1,6 @@
 import { Carousel } from "@material-tailwind/react";
 import ProductList from "../components/ui/ProductList";
-import CategorySelect from "../components/layouts/CategorySelect";
+import CategorySelect from "../components/ui/CategorySelect";
 export default function Home() {
   return (
     <div>

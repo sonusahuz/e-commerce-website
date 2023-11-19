@@ -5,7 +5,7 @@ interface CustomInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   name?: string;
-  type: "text" | "number" | "email";
+  type: "text" | "number" | "email" | string;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -25,7 +25,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
         value={value}
         size="lg"
         onChange={onChange}
-        // Use size for styling
         required
       />
     </div>

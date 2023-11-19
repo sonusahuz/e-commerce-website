@@ -1,42 +1,34 @@
-import { object, string, number, date, InferType } from "yup";
-export const category = [
-  {
-    id: "1",
-    name: "Shoes",
-    url: "mens-shoes",
-    image: "/shoes.webp",
-  },
-  {
-    id: "2",
-    name: "Bags",
-    url: "womens-bags",
-    image: "/bags.webp",
-  },
-  {
-    id: "3",
-    name: "Watches",
-    url: "mens-watches",
-    image: "/watch.jpg",
-  },
-  {
-    id: "4",
-    name: "Phones",
-    url: "smartphones",
-    image: "/phones.jpg",
-  },
-  {
-    id: "5",
-    name: "Laptops",
-    url: "laptops",
-    image: "/laptops.webp",
-  },
-  {
-    id: "6",
-    name: "Shirts",
-    url: "mens-shirts",
-    image: "/shirts.webp",
-  },
-];
+export const getInputFields = (formData: FormDataType) => {
+  return [
+    {
+      type: "text",
+      name: "fullName",
+      value: formData.fullName,
+      label: "Full Name",
+    },
+    { type: "email", name: "email", value: formData.email, label: "Email" },
+    {
+      type: "number",
+      name: "phoneNumber",
+      value: formData.phoneNumber,
+      label: "Phone Number",
+    },
+    {
+      type: "number",
+      name: "pinCode",
+      value: formData.pinCode,
+      label: "Pin Code",
+    },
+    { type: "text", name: "city", value: formData.city, label: "City" },
+    {
+      type: "text",
+      name: "district",
+      value: formData.district,
+      label: "District",
+    },
+    { type: "text", name: "state", value: formData.state, label: "State" },
+  ];
+};
 
 export interface ProductTypes {
   id: number;
@@ -55,7 +47,6 @@ export interface Product {
 }
 
 interface InitialStateType {
-  page: number;
   prodCategory: string;
   searchProduct: string;
   cart: ProductTypes[];
@@ -64,7 +55,6 @@ interface InitialStateType {
 }
 
 export const initialState: InitialStateType = {
-  page: 1,
   prodCategory: "smartphones",
   searchProduct: "",
   cart: [],
@@ -91,3 +81,19 @@ export const formDataType: FormDataType = {
   state: "",
   city: "",
 };
+
+export interface CartProductsType {
+  prod: {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    category: string;
+    thumbnail: string;
+    brand: string;
+    images?: string[];
+    rating: number;
+    quantity: number;
+  };
+  buttonText?: string;
+}

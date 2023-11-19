@@ -12,9 +12,7 @@ export const productSlice = createSlice({
     setLogin(state, action) {
       state.isLogin = action.payload;
     },
-    setPage(state, action) {
-      state.page = action.payload;
-    },
+
     setProdCatgeory(state, action) {
       state.prodCategory = action.payload;
     },

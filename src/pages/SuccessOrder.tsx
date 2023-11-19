@@ -19,10 +19,10 @@ export default function SuccessOrder() {
             ₹935 Saved, Yay!
           </h1>
           <button
-            onClick={() => navigate("/my-order")}
+            onClick={() => navigate("/")}
             className="px-10 my-4 rounded py-3 bg-black text-white text-sm"
           >
-            Track Order
+            Show Now
           </button>
         </div>
       </div>

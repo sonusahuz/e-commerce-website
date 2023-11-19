@@ -1,18 +1,15 @@
 import Modal from "../components/ui/Modal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SiPhonepe, SiPaytm } from "react-icons/si";
 import { FaCcMastercard, FaGoogle } from "react-icons/fa";
 import { Input, Spinner } from "@material-tailwind/react";
 import { BsCashCoin } from "react-icons/bs";
-import { useNavigate, useParams } from "react-router-dom";
-import { getSingleProducts } from "../utils/api";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { productAction } from "../store/productSlice";
 import CustomInput from "../components/Custom/CustomInput";
+import { productAction } from "../store/productSlice";
 export default function PaymentMode() {
   const disptach = useDispatch();
-  const [order, setOrder] = useState([]);
-  const { id } = useParams();
   const [showUPI, setShowUPI] = useState(false);
   const [showCard, setShowCard] = useState(false);
   const [cashOnDelivery, setCashOnDelivery] = useState(false);
@@ -35,17 +32,11 @@ export default function PaymentMode() {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
-      disptach(productAction.orderProducts(order));
       navigate("/success");
+      disptach(productAction.clearCart());
     }, 2000);
   };
 
-  useEffect(() => {
-    getSingleProducts(`${id}`).then((res) => {
-      console.log(res);
-      setOrder(res);
-    });
-  }, []);
   return (
     <Modal>
       <div className="bg-white rounded">

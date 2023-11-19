@@ -14,7 +14,7 @@ export default function SingleProduct() {
   const { id } = useParams();
   const handleOrder = () => {
     if (isLogin) {
-      navigate(`/products/${products?.id}/order`);
+      navigate(`/order`);
     } else {
       navigate("/login");
     }
